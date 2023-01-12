@@ -8,18 +8,19 @@
 </head>
 <body>
     <label>Please enter rock/paper/scissors</label><br>
-    <input type="text" id="usrin" name="name">
+    <input type="text" id="usrin" name="name"><br>
+    <button id="button">Confirm</button>
 
     <script>
         function getComputerChoice()
         {
             const randNum = Math.floor(Math.random()*100) + 1;
-            const compChoice = null;
+            let compChoice = null;
 
-            if (randNum >= 0 || randNum <= 33){
+            if (randNum > 66){
                 compChoice = 'rock';
             }
-            else if (randNum > 33 || randNum <= 66){
+            else if (randNum > 33){
                 compChoice = 'paper';
             }
             else {
@@ -28,6 +29,29 @@
 
             return compChoice;
         }
+
+        function gameState(player, comp)
+        {
+            if (comp == "paper"){
+                console.log("You lose! Paper beats rock");
+            }
+            else if (comp == "scissors")
+            {
+                console.log("You win! Rock beats scissors");
+            }
+            else {
+                console.log("The game is a tie!");
+            }
+        }
+
+        const buttonNode = document.getElementById('button');
+
+        buttonNode.addEventListener('click', () => {
+            const inputVal = document.getElementById('usrin').toString().toLowerCase();
+            const compSelection = getComputerChoice();
+
+            gameState(inputVal, compSelection);
+        })
 
     </script>
 </body>
