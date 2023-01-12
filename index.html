@@ -32,22 +32,48 @@
 
         function gameState(player, comp)
         {
-            if (comp == "paper"){
+            if (player == 'rock'){
+                if (comp == "paper"){
                 console.log("You lose! Paper beats rock");
+                }
+                else if (comp == "scissors")
+                {
+                    console.log("You win! Rock beats scissors");
+                }
+                else {
+                    console.log("The game is a tie!");
+                }
             }
-            else if (comp == "scissors")
-            {
-                console.log("You win! Rock beats scissors");
+            else if (player == 'paper'){
+                if (comp == "scissors"){
+                console.log("You lose! Scissors beats paper");
+                }
+                else if (comp == "rock")
+                {
+                    console.log("You win! Paper beats rock");
+                }
+                else {
+                    console.log("The game is a tie!");
+                }
             }
-            else {
-                console.log("The game is a tie!");
+            else if (player == 'scissors'){
+                if (comp == "rock"){
+                console.log("You lose! Rock beats scissors");
+                }
+                else if (comp == "paper")
+                {
+                    console.log("You win! Scissors beats paper");
+                }
+                else {
+                    console.log("The game is a tie!");
+                }
             }
         }
 
         const buttonNode = document.getElementById('button');
 
         buttonNode.addEventListener('click', () => {
-            const inputVal = document.getElementById('usrin').toString().toLowerCase();
+            const inputVal = document.getElementById('usrin').value.toLowerCase();
             const compSelection = getComputerChoice();
 
             gameState(inputVal, compSelection);
