@@ -7,78 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <label>Please enter rock/paper/scissors</label><br>
-    <input type="text" id="usrin" name="name"><br>
-    <button id="button">Confirm</button>
-
-    <script>
-        function getComputerChoice()
-        {
-            const randNum = Math.floor(Math.random()*100) + 1;
-            let compChoice = null;
-
-            if (randNum > 66){
-                compChoice = 'rock';
-            }
-            else if (randNum > 33){
-                compChoice = 'paper';
-            }
-            else {
-                compChoice = 'scissors';
-            }
-
-            return compChoice;
-        }
-
-        function gameState(player, comp)
-        {
-            if (player == 'rock'){
-                if (comp == "paper"){
-                console.log("You lose! Paper beats rock");
-                }
-                else if (comp == "scissors")
-                {
-                    console.log("You win! Rock beats scissors");
-                }
-                else {
-                    console.log("The game is a tie!");
-                }
-            }
-            else if (player == 'paper'){
-                if (comp == "scissors"){
-                console.log("You lose! Scissors beats paper");
-                }
-                else if (comp == "rock")
-                {
-                    console.log("You win! Paper beats rock");
-                }
-                else {
-                    console.log("The game is a tie!");
-                }
-            }
-            else if (player == 'scissors'){
-                if (comp == "rock"){
-                console.log("You lose! Rock beats scissors");
-                }
-                else if (comp == "paper")
-                {
-                    console.log("You win! Scissors beats paper");
-                }
-                else {
-                    console.log("The game is a tie!");
-                }
-            }
-        }
-
-        const buttonNode = document.getElementById('button');
-
-        buttonNode.addEventListener('click', () => {
-            const inputVal = document.getElementById('usrin').value.toLowerCase();
-            const compSelection = getComputerChoice();
-
-            gameState(inputVal, compSelection);
-        })
-
-    </script>
+    <!--<label>Please enter rock/paper/scissors</label><br>-->
+    <!--<input type="text" id="usrin" name="name"><br>-->
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+    <div id="result"></div>
+    <p>Player Score: </p><span id="player"></span>
+    <p>Computer Score: </p><span id="computer"></span>
+    <script src="gameState.js"></script>
 </body>
 </html>
